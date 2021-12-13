@@ -1,8 +1,8 @@
 import{EntityRepository,Repository} from "typeorm"
-import { Tags } from "../entities/Tags"
+import { Tag } from "../entities/Tag"
 
-@EntityRepository(Tags)
-class TagsRepositories extends Repository<Tags>{
+@EntityRepository(Tag)
+class TagsRepositories extends Repository<Tag>{
 
 
 }
