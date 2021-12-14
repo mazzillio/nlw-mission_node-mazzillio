@@ -9,6 +9,8 @@ import { ensureAuthenticate } from "./middlewares/ensureAuthenticated";
 import { ListUserSendComplimentsController } from "./controllers/ListUserSendComplimentsController";
 import { ListUserReceiverComplimentsController } from "./controllers/ListUserReceiveComplimentsController";
 import { ListTagsController } from "./controllers/ListTagsController";
+import { UpdateUserController } from "./controllers/UpdateUserController";
+import { DeleteUserController } from "./controllers/DeleteUserController";
 
 const router=Router()
 
@@ -16,13 +18,20 @@ const createUserControler =new CreateUserController()
 const createTagControler = new CreateTagController()
 const readUserControler = new ReadUserController()
 const authenticateUserControler= new AuthenticateUserController()
+const updateUserController = new UpdateUserController()
+const deleteUserController = new DeleteUserController()
+
 const createComplimentController = new CreateComplimentController()
 const listSendUserComplimentsController = new ListUserSendComplimentsController()
 const listReceiveUserComplimentsController = new ListUserReceiverComplimentsController()
+
+
 const listTagsController = new ListTagsController()
 
 router.post("/users",createUserControler.handle)
-router.get("/users",ensureAuthenticate,readUserControler.handle)
+router.get("/users",ensureAuthenticate,ensureAdmin,readUserControler.handle)
+router.put("/users/:id",ensureAuthenticate,ensureAdmin,updateUserController.handle)
+router.delete("/users/:id",ensureAuthenticate,ensureAdmin,deleteUserController.handle)
 
 router.post("/login",authenticateUserControler.handle)
 
