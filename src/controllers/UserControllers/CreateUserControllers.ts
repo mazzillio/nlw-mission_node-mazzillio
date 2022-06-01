@@ -1,7 +1,7 @@
 import {Request,Response} from "express"
 import { CreateUserService } from "../../services/usersServices/CreateUserService"
-
-
+import {UsersRepositories} from '../../repositories/UsersRepositories'
+import { getCustomRepository } from "typeorm"
 
 class CreateUserController{
 
@@ -9,11 +9,11 @@ class CreateUserController{
     {
         const {name, email, admin,password}=req.body
 
-        const createUserService =new CreateUserService()
+        const createUserService = new CreateUserService(getCustomRepository(UsersRepositories))
 
         const user = await createUserService.execute({name,email,admin,password})
 
-        return res.json(user )
+        return res.json(user)
     }
 
 }
