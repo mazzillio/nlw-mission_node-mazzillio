@@ -1,4 +1,4 @@
-import { UsersRepositories } from "../repositories/UsersRepositories";
+import { UsersRepositories } from "../../repositories/UsersRepositories";
 import { getCustomRepository } from "typeorm";
 import {classToPlain} from "class-transformer"
 

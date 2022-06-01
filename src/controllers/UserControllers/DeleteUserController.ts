@@ -1,5 +1,6 @@
 import {Request,Response} from "express"
-import { DeleteUserService } from "../../services/DeleteUserService"
+import { DeleteUserService } from "../../services/usersServices/DeleteUserService"
+
 
 
 
