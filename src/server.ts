@@ -3,7 +3,7 @@ import "express-async-errors"
 import "reflect-metadata"
 import "./database"
 import { errorrTratado } from "./middlewares/error"
-import { router } from "./routes"
+import { router } from "./routes/routes"
 
 const app=express()
 

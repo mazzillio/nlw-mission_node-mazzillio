@@ -10,7 +10,6 @@ interface IAutheticateRequest{
 
 
 class AuthenticateUserService{
-
     async execute({email,password}:IAutheticateRequest)
     {
 
